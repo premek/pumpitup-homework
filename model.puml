@@ -1,0 +1,33 @@
+@startuml
+
+class ItemType {
+  name
+}
+ItemType --> "1" Category
+ItemType --> "0..N" Attribute
+
+class Item {
+  id
+  stock
+}
+Item --> "1" ItemType
+Item --> "0..N" ConfigurationValue
+
+ConfigurationValue --> "1" Attribute
+
+class ConfigurationValue{
+value
+}
+class Attribute{
+name
+}
+class Category{
+ name
+ }
+
+
+Order --> "1" ItemType
+Order --> "0..N" ConfigurationValue
+
+
+@enduml
